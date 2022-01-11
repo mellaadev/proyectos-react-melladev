@@ -52,8 +52,8 @@ const ControlPresupuesto = ({
         <div className='contenedor-presupuesto contenedor sombra dos-columnas'>
             <div>
                 <CircularProgressbar
-                    styles={buildStyles({
-                        pathColor: porcentaje > 100 ? '#DC2626' : '#3B82F6',
+                    styles={buildStyles({ 
+                        pathColor: porcentaje > 100 ? '#DC2626' : '#3B82F6',  
                         trailColor: '#F5F5F5',
                         textColor: porcentaje > 100 ? '#DC2626' : '#3B82F6',
                     })}
