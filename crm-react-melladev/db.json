@@ -1,3 +1,12 @@
 {
-  "clientes": []
+  "clientes": [
+    {
+      "nombre": "dsafdas",
+      "empresa": "asdfasdf",
+      "email": "ffff@messi.com",
+      "telefono": "2356235243",
+      "notas": "asfsadf",
+      "id": 1
+    }
+  ]
 }
