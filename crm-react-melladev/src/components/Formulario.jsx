@@ -3,8 +3,9 @@ import { Formik, Form, Field } from 'formik'
 import { useNavigate } from 'react-router-dom'
 import * as Yup from 'yup'
 import Alerta from './Alerta'
+import Spinner from './Spinner'
 
-const Formulario = ({ cliente }) => {
+const Formulario = ({ cliente, cargando }) => {
 
     const navigate = useNavigate()
 
@@ -26,26 +27,41 @@ const Formulario = ({ cliente }) => {
 
     const handleSubmit = async (valores) => {
         try {
-            const url = 'http://localhost:4000/clientes'
+            let respuesta;
+            if(cliente.id) {
+                // Editando un registro
+                const url = `http://localhost:4000/clientes/${cliente.id}`
 
-            const respuesta = await fetch(url, {
-                method: 'POST',
-                body: JSON.stringify(valores),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
+                respuesta = await fetch(url, {
+                    method: 'PUT',
+                    body: JSON.stringify(valores),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
 
-            const resultado = await respuesta.json()
+            } else {
+                // Nuevo registro
+                const url = 'http://localhost:4000/clientes'
 
+                respuesta = await fetch(url, {
+                    method: 'POST',
+                    body: JSON.stringify(valores),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+            }
+
+            await respuesta.json()
             navigate('/clientes')
-
         } catch (error) {
             console.log('Has tirado el maravilloso server que habias creado, ahora te jodes y lo arreglas.')
         }
     }
 
     return (
+        cargando ? <Spinner /> : (
         <div className='bg-white mt-10 px-5 py-10 rounded:md shadow-md md:w-3/4 md:mx-auto'>
             <h1 className='text-gray-600 font-bold text-xl uppercase text-center'>{cliente?.nombre ? 'Editar Cliente' : 'Agregar Cliente'}</h1>
 
@@ -170,11 +186,13 @@ const Formulario = ({ cliente }) => {
                 )}}
             </Formik>
         </div>
+        )
     )
 }
 
 Formulario.defaultProps = {
-    cliente: {}
+    cliente: {},
+    cargando: false
 }
 
 export default Formulario
