@@ -10,4 +10,6 @@ Estos proyectos estan desarrollados a partir del curso de React de Juan de la To
 
 CRM React, no subida a Hosting.
 
-Guitar Next...
+Guitar Next --> Proximamente
+
+[Cotizador Seguros](https://cotizador-seguros-melladev.netlify.app)
