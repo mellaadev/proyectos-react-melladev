@@ -13,3 +13,5 @@ CRM React, no subida a Hosting.
 Guitar Next --> Proximamente
 
 [Cotizador Seguros](https://cotizador-seguros-melladev.netlify.app)
+
+[Breaking Bad Frases](https://breakingbad-frases-melladev.netlify.app)
