@@ -17,3 +17,5 @@ Guitar Next --> Proximamente
 [Breaking Bad Frases](https://breakingbad-frases-melladev.netlify.app)
 
 [Clima React App](https://clima-react-melladev.netlify.app)
+
+[Noticias React](https://noticias-react-melladev.netlify.app)
