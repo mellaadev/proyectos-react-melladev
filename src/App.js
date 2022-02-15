@@ -5,6 +5,8 @@ import Info from './components/Info';
 
 import axios from 'axios';
 
+// Esto funciona
+
 function App() {
 
   // Definir el state para la consulta a las apis
